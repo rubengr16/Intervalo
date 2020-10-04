@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37ef23c4-36ce-4efa-97d2-6c27843ced79" name="Default" comment="" />
+    <list default="true" id="37ef23c4-36ce-4efa-97d2-6c27843ced79" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,7 +16,11 @@
   <component name="FavoritesManager">
     <favorites_list name="Intervalo" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1iFZ7lGQwl7vcZKWak8Qwlf0A5q" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -28,7 +35,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TrafficLight/TrafficLight" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../AL/BasicSortingAlgorithms" />
     <property name="options.lastSelected" value="preferences.lookFeel" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.splitter.main.proportions" value="0.3" />
@@ -143,6 +150,8 @@
       <workItem from="1601733477410" duration="2684000" />
       <workItem from="1601736180389" duration="7000" />
       <workItem from="1601736812486" duration="1924000" />
+      <workItem from="1601806169801" duration="18000" />
+      <workItem from="1601808594508" duration="58000" />
     </task>
     <servers />
   </component>
@@ -166,10 +175,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="501" y="246" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1366.728@0.0.1366.728" timestamp="1601505144034" />
-    <state x="413" y="62" key="FileChooserDialogImpl" timestamp="1601757130492">
+    <state x="413" y="62" key="FileChooserDialogImpl" timestamp="1601808649284">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="62" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1601757130492" />
+    <state x="413" y="62" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1601808649284" />
+    <state x="314" y="146" key="com.intellij.ide.util.TipDialog" timestamp="1601808635634">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="314" y="146" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1601808635634" />
     <state x="262" y="-1" width="840" height="1034" key="search.everywhere.popup" timestamp="1601735937215">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
