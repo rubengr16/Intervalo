@@ -39,9 +39,17 @@ public class Main {
             System.out.println("¿Intersecta " + i2 + "al " + i5 + "?: " + i2.intersecta(i5));
             System.out.println("¿Intersecta " + i4 + "al " + i5 + "?: " + i4.intersecta(i5));
 
-            System.out.println("intersección "+i2+" e "+i5+"?: "+i2.interseccion(i5));
-            System.out.println("intersección "+i4+" e "+i5+"?: "+i4.interseccion(i5));
+            System.out.println("intersección " + i2 + " e " + i5 + "?: " + i2.interseccion(i5));
+            System.out.println("intersección " + i4 + " e " + i5 + "?: " + i4.interseccion(i5));
 
-            System.out.println("¿Suma "+i2+" e "+i4+"?: "+i2.suma(i4));
+            System.out.println("¿Suma " + i2  +" e " + i4 + "?: " + i2.suma(i4));
+            System.out.println("¿Suma " + i2 + " e " + i5 + "?: " + i2.suma(i5));
+
+            System.out.println("Desplazar " + i2 + "con 3.5: " + i2.desplazar(3.5));
+
+            i1.recoger();
+            i1.mostrar();
+
+            // Modificar código para devolver 2 decimales redondeados
         }
 }
