@@ -27,33 +27,37 @@ class Intervalo {
 
     public Intervalo (Intervalo intervalo) {
         // this(intervalo.extremoInferior, intervalo.extremoSuperior); // Se refiere al constructor del objeto en ejecución
-    if (intervalo == null) {
-        this.extremoInferior = ORIGEN;
-        this.extremoSuperior = ORIGEN;
-    } else{
-        this.extremoInferior = intervalo.extremoInferior; // Como estamos en la propia clase, no es necesario usar un getter
+    this(); // construye el intervalo vacío y luego lo modificamos
+    if (intervalo != null) {
+        this.extremoInferior = intervalo.extremoInferior;
         this.extremoSuperior = intervalo.extremoSuperior;
     }
     }
 
-	// Métodos públicos
+    // Métodos privados
+    private double round(double value, int places) {
+        //a desarrollar
+        return 0;
+    }
 
+	// Métodos públicos
     public double getExtremoInferior () { // Ambos getter son idempotentes, no molestan ni dan problemas si se tienen de más
-        return extremoInferior;          // en cambio, setter no
+        return extremoInferior;           // en cambio, setter no
+        // return this.round(this.extremoInferior, REDONDEO);
     }
 
     public double getExtremoSuperior () {
         return extremoSuperior;
+        //return this.round(this.extremoSuperior, REDONDEO);
     }
 
     @Override // Code > Override > Seleccionamos los métodos que queramos modificar
     public String toString () {
        return (this.getClass().getName() + "[ " + this.extremoInferior + ", " + this.extremoSuperior + "]");
-        // recupera desde el teclado los extremos del intervalo
     }
 
     public void recoger () {
-        // Recyperar por teclado los extremos de un intervalo
+        // Recuperar por teclado los extremos de un intervalo
         double extremoInferior, extremoSuperior;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Extremo Inferior: ");
@@ -61,6 +65,15 @@ class Intervalo {
         System.out.println("Extremo Inferior: ");
         extremoSuperior = scanner.nextDouble();
         scanner.close();
+        /*
+		double aux = extremoSuperior;
+		if(extremoSuperior < extremoInferior) {
+			extremoSuperior = extremoInferior;
+			extremoInferior = aux;
+		}
+		this.extremoInferior = extremoInferior;
+		this.extremoSuperior = extremoSuperior;
+		*/
         this.extremoInferior = Math.min(extremoInferior, extremoSuperior);
         this.extremoSuperior = Math.max(extremoInferior, extremoSuperior);
     }
@@ -70,10 +83,12 @@ class Intervalo {
     }
 
 	public double longitud () {
+        // Devuelve la longitud del intervalo
         return this.extremoSuperior - this.extremoInferior;
 	}
 
 	public double puntoMedio () {
+        // devuelve el punto medio del intervalo
         return this.longitud()/2 + this.extremoInferior;
 	}
 
@@ -186,9 +201,9 @@ class Intervalo {
         this.extremoInferior += valor;
     }
 
-    public void cambiar (double extremoInferior, double extremoSuperior) {
+    /*public void cambiar (double extremoInferior, double extremoSuperior) { // Innecesario si usamos Math
         double Superior = extremoInferior;
         this.extremoInferior = extremoSuperior;
         this.extremoSuperior = Superior;
-    }
+    }*/
 }
