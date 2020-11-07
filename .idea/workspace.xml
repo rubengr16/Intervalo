@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Intervalo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Intervalo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,9 +15,6 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="Intervalo" />
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -24,19 +22,22 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Punto" />
     <property name="options.lastSelected" value="preferences.lookFeel" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.splitter.main.proportions" value="0.3" />
@@ -44,10 +45,6 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="recentsLimit" value="5" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="OverrideImplement.combined" value="true" />
-    <property name="OverrideImplement.overriding.sorted" value="false" />
-    <property name="FullScreen" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -152,12 +149,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -176,11 +169,16 @@
       <workItem from="1601806169801" duration="18000" />
       <workItem from="1601808594508" duration="58000" />
       <workItem from="1602075650237" duration="721000" />
+      <workItem from="1602231602528" duration="80000" />
+      <workItem from="1602339113114" duration="15000" />
+      <workItem from="1603313450219" duration="1167000" />
+      <workItem from="1603487748449" duration="625000" />
+      <workItem from="1604702771241" duration="756000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -195,18 +193,34 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="111" y="9" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1601734597701" />
-    <state x="501" y="246" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1602075656664">
+    <state x="501" y="246" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1603313631527">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="501" y="246" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1366.728@0.0.1366.728" timestamp="1602075656664" />
-    <state x="413" y="62" key="FileChooserDialogImpl" timestamp="1601808649284">
+    <state x="501" y="246" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1366.728@0.0.1366.728" timestamp="1603313631527" />
+    <state x="413" y="62" key="FileChooserDialogImpl" timestamp="1604702809526">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="62" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1601808649284" />
-    <state x="314" y="146" key="com.intellij.ide.util.TipDialog" timestamp="1601808635634">
+    <state x="413" y="62" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604702809526" />
+    <state width="1311" height="165" key="GridCell.Tab.0.bottom" timestamp="1603315123911">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="314" y="146" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1601808635634" />
+    <state width="1311" height="165" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603315123911" />
+    <state width="1311" height="165" key="GridCell.Tab.0.center" timestamp="1603315123910">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1311" height="165" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1603315123910" />
+    <state width="1311" height="165" key="GridCell.Tab.0.left" timestamp="1603315123910">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1311" height="165" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1603315123910" />
+    <state width="1311" height="165" key="GridCell.Tab.0.right" timestamp="1603315123911">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1311" height="165" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1603315123911" />
+    <state x="314" y="146" key="com.intellij.ide.util.TipDialog" timestamp="1603487752435">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="314" y="146" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1603487752435" />
     <state x="262" y="-1" width="840" height="1034" key="search.everywhere.popup" timestamp="1601735937215">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -273,6 +287,18 @@
               <list>
                 <option value="0.2" />
                 <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
               </list>
             </option>
           </splitter-proportions>

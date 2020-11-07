@@ -5,8 +5,9 @@ class Intervalo {
     private double extremoInferior;
     private double extremoSuperior;
 
-    private final double ORIGEN = 0.0; // Variable constante (final), SIEMPRE en MAYÚSCULAS
+    public /*protected*/ static final double ORIGEN = 0.0; // Variable constante (final), SIEMPRE en MAYÚSCULAS
                                        // Algo es estático si se puede acceder sin instanciar, acceso estático sin necesidad dinámica
+    private final int REDONDEO = 2;
 
     // Constructores (sobrecargados)
     public Intervalo (){
@@ -21,26 +22,50 @@ class Intervalo {
         this.extremoInferior = extremoInferior; // El this elimina ambigüedad, entonces referencia al objeto en tiempo de ejecución,
         this.extremoSuperior = extremoSuperior; // en este caso, determina que cuando la clase se ejecute, entonces es su atributo
         */
-        this.extremoInferior = Math.min(extremoInferior, extremoSuperior); // Usando Math es más sencillo
-        this.extremoSuperior = Math.max(extremoInferior, extremoSuperior);
+        this.setExtremoInferior(Math.min(extremoInferior, extremoSuperior)); // Usando Math es más sencillo
+        this.setExtremoSuperior(Math.max(extremoInferior, extremoSuperior));
     }
 
     public Intervalo (Intervalo intervalo) {
         // this(intervalo.extremoInferior, intervalo.extremoSuperior); // Se refiere al constructor del objeto en ejecución
-    this(); // construye el intervalo vacío y luego lo modificamos
-    if (intervalo != null) {
-        this.extremoInferior = intervalo.extremoInferior;
-        this.extremoSuperior = intervalo.extremoSuperior;
+        this(); // construye el intervalo vacío y luego lo modificamos, si no se pone está implicito
+        if (intervalo != null) {
+            this.extremoInferior = intervalo.extremoInferior; // se podría usar el set
+            this.extremoSuperior = intervalo.extremoSuperior;
+        }
     }
+
+    public Intervalo(double extremo) {
+        this(extremo, Intervalo.ORIGEN);
+        /*this();
+        if (extremo > ORIGEN) {
+            this.setExtremoSuperior(extremo);
+        } else {
+            this.setExtremoInferior(extremo);
+        }*/
     }
 
     // Métodos privados
-    private double round(double value, int places) {
-        //a desarrollar
-        return 0;
+    private double redondea(double valor) {
+        // redondea a <REDONDEO> decimales el <valor> proporcionado
+        // BigDecimal bd = new BigDecimal(valor);
+        // bd = bd.setScale(numDecimales, RoundingMode.HALF_UP);
+        // return bd.doubleValue();
+        long factor = (long) Math.pow(10, REDONDEO); // Calcula los decimales a redondear
+        valor = valor * factor; // Multiplica por 10^factor para conservar los decimales deseados
+        long tmp = Math.round(valor); // Redondea
+        return (double) tmp / factor; // Divide por 10^factor para devolver los decimales deseados a su sitio
     }
 
-	// Métodos públicos
+    public void setExtremoInferior(double valor) {
+        this.extremoInferior = this.redondea(valor);
+    }
+
+    public void setExtremoSuperior(double valor) {
+        this.extremoSuperior = this.redondea(valor);
+    }
+
+    // Métodos públicos
     public double getExtremoInferior () { // Ambos getter son idempotentes, no molestan ni dan problemas si se tienen de más
         return extremoInferior;           // en cambio, setter no
         // return this.round(this.extremoInferior, REDONDEO);
@@ -74,8 +99,8 @@ class Intervalo {
 		this.extremoInferior = extremoInferior;
 		this.extremoSuperior = extremoSuperior;
 		*/
-        this.extremoInferior = Math.min(extremoInferior, extremoSuperior);
-        this.extremoSuperior = Math.max(extremoInferior, extremoSuperior);
+        this.setExtremoInferior(Math.min(extremoInferior, extremoSuperior));
+        this.setExtremoSuperior(Math.max(extremoInferior, extremoSuperior));
     }
 
 	public void mostrar () {
@@ -84,7 +109,7 @@ class Intervalo {
 
 	public double longitud () {
         // Devuelve la longitud del intervalo
-        return this.extremoSuperior - this.extremoInferior;
+        return this.redondea(this.extremoSuperior - this.extremoInferior);
 	}
 
 	public double puntoMedio () {
@@ -94,7 +119,11 @@ class Intervalo {
 
     @Override
     public boolean equals (Object obj) {
-        return this.igual((Intervalo) obj); // Necesario castear objeto, porque que sea objeto no implica ser intervalo
+        boolean iguales = false;
+        if (obj instanceof Intervalo) {
+            iguales = this.igual((Intervalo) obj);
+        }
+        return iguales; // Necesario castear objeto, porque que sea objeto no implica ser intervalo
     }
 
     public boolean igual (Intervalo intervalo) {
@@ -105,7 +134,7 @@ class Intervalo {
             }
             return this.extremoInferior == intervalo.extremoInferior
                     && this.extremoSuperior == intervalo.extremoSuperior;*/
-            return this.extremoInferior == Math.min(intervalo.extremoInferior, intervalo.extremoSuperior)
+            iguales = this.extremoInferior == Math.min(intervalo.extremoInferior, intervalo.extremoSuperior)
                     && this.extremoSuperior == Math.max(intervalo.extremoInferior, intervalo.extremoSuperior);
         }
         return iguales;
@@ -116,11 +145,19 @@ class Intervalo {
 	}
 
 	public boolean anterior (Intervalo intervalo) {
-        return this.extremoSuperior < intervalo.extremoInferior;
+        boolean anterior = false;
+        if(intervalo != null) {
+            anterior = this.extremoSuperior < intervalo.extremoInferior;
+        }
+        return anterior;
 	}
 
 	public boolean posterior (Intervalo intervalo) {
-        return this.extremoInferior > intervalo.extremoSuperior;
+        boolean posterior = false;
+        if(intervalo != null) {
+            posterior = this.extremoInferior > intervalo.extremoSuperior;
+        }
+        return posterior;
 	}
 
 	public boolean incluye (double punto) {
@@ -129,15 +166,22 @@ class Intervalo {
 	}
 
 	public boolean incluye (Intervalo intervalo) {
-        return this.incluye(intervalo.extremoInferior)
-                        && this.incluye(intervalo.extremoSuperior);
+        boolean incluye = false;
+        if(intervalo != null) {
+            incluye = this.incluye(intervalo.extremoInferior) && this.incluye(intervalo.extremoSuperior);
+        }
+        return incluye;
 	}
 
 	public boolean intersecta (Intervalo intervalo) {
-        return this.incluye(intervalo.extremoInferior)
-                        || this.incluye(intervalo.extremoSuperior)
-                        || intervalo.incluye(this.extremoInferior)
-                        || intervalo.incluye(this.extremoSuperior);
+        boolean intersecta = false;
+        if(intervalo != null) {
+            intersecta = this.incluye(intervalo.extremoInferior)
+                    || this.incluye(intervalo.extremoSuperior)
+                    || intervalo.incluye(this.extremoInferior)
+                    || intervalo.incluye(this.extremoSuperior);
+        }
+        return intersecta;
 	}
 
 	public Intervalo interseccion (Intervalo intervalo) {
@@ -181,6 +225,27 @@ class Intervalo {
         }
         return resultado;
 	}
+
+    public Intervalo diferencia(Intervalo intervalo) {
+        Intervalo resultado = null;
+        double extremoInferior, extremoSuperior;
+        if (!this.intersecta(intervalo)) {
+            // extremoInferior = Math.max(this.extremoInferior, intervalo.extremoInferior);
+            // extremoSuperior = Math.min(this.extremoSuperior, intervalo.extremoSuperior);
+            // resultado = new Intervalo(extremoInferior, extremoSuperior);
+            if(this.anterior(intervalo)) {
+                resultado = new Intervalo(this.extremoSuperior, intervalo.extremoInferior);
+            } else {
+                resultado = new Intervalo(intervalo.extremoSuperior, this.extremoInferior);
+            }
+        }
+        return resultado;
+    }
+
+    public double distancia(Intervalo intervalo) {
+        // return new Intervalo(this.diferencia(intervalo)).longitud();
+        return (this.diferencia(intervalo) != null)?this.diferencia(intervalo).longitud():0.0;
+    }
 
     @Override
     protected Object clone() throws CloneNotSupportedException { // No se necesita importar porquue Object class está en el
